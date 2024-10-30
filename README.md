@@ -24,6 +24,11 @@ Below is an example of how you can set up the **DiscordJS Bot Template** for you
 4. **Configure the Bot**  
    Open the configuration file located at **config/config.json** and customize the settings according to your preferences. You can set the bot's name, log channel, and other important configurations there.
 
+5. **Start the Bot**  
+   To start the bot, navigate to the main directory of your project and run the following command:
+   ```bash
+   node bootstrap.js
+
 > [!CAUTION]
 > **Important**: Please refrain from sharing your Discord bot token! Sharing your token can give unauthorized users complete control over your bot. To keep your token secure, store it safely in a .json file.
 
