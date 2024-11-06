@@ -24,15 +24,16 @@ client.cooldowns = new Collection();
 
 client.once(Events.ClientReady, async () => {
   logHandler.initialize(client);
+
   //console.log(`Logged in as ${client.user.tag}`);
 
-  // setup rich presence
+  //@note: sets bot's rich presence status
   client.user.setPresence({
     activities: [{ name: `Discord JS Bot Template - https://github.com/NoSkill33`, type: ActivityType.Custom }],
     status: 'online',
   });
 
-  // initlaize handlers
+  //@note: initlaize handlers
   await commandHandler.loadCommands(client).catch(console.error);
   await eventHandler.loadEvents(client).catch(console.error);
   await componentHandler.loadComponents(client).catch(console.error);
