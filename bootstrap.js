@@ -25,6 +25,7 @@ client.cooldowns = new Collection();
 client.once(Events.ClientReady, async () => {
   logHandler.initialize(client);
 
+  //@note: welcome message, uncomment if you'd like to
   //console.log(`Logged in as ${client.user.tag}`);
 
   //@note: sets bot's rich presence status
