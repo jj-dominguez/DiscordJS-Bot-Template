@@ -1,6 +1,6 @@
 const { Events } = require('discord.js');
 const client = require('../../bootstrap');
-const { getMention } = require('../utils/messageHandler');
+const { getMention } = require('../utils/responseBuilder');
 
 module.exports = {
   name: Events.MessageCreate,

@@ -2,7 +2,7 @@ const { REST, Routes, Collection } = require('discord.js');
 const fs = require('fs');
 const path = require('path');
 const config = require('../../config/config.json');
-const { getcooldownMessages, getdeinMessages } = require('./messageHandler');
+const { getcooldownMessages, getdeinMessages } = require('./responseBuilder');
 const { createEmbed } = require('./embedBuilder');
 
 async function loadCommands(client) {
