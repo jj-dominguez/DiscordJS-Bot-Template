@@ -4,7 +4,7 @@
   "bot_color": "#5865F2",
   "developerid": [
     "PUT YOUR ID HERE",
-    "PUT YOUR FRIEND'S ID HERE (or remove this entry)"
+    "PUT YOUR'S FRIEND ID HERE (or remove this entry)"
   ],
   "deploy_commands": true,
   "bot_name": "[DiscordJS-Bot-Template]",
