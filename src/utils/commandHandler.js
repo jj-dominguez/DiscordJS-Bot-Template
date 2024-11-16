@@ -33,7 +33,7 @@ async function loadCommands(client) {
 
   readFilesRecursively(commandPath);
 
-  // register commands
+  //@note: register commands
   if (config.deploy_commands) {
     const rest = new REST().setToken(config.token);
     try {
@@ -49,7 +49,7 @@ async function loadCommands(client) {
 }
 
 async function synchronizeCommands(interaction, client) {
-  // sanity check
+  //@note: sanity check
   if (!interaction.isCommand()) return;
 
   const command = client.commands.get(interaction.commandName);
@@ -111,15 +111,15 @@ async function synchronizeCommands(interaction, client) {
   //   comlogs_channel.send({ embeds: [embedlogs] });
   // }
 
-  // server owner only
+  //@note: server owner only command
   if (command.owner && interaction.user.id !== interaction.guild.ownerId) {
     return interaction.reply({
-      content: 'Ta komenda jest przeznaczona tylko dla właściciela serwera!',
+      content: 'This command is intended for the server owner only.',
       ephemeral: true,
     });
   }
 
-  // // cooldown bypass for devs
+  //@note: developer group cooldown bypass (uncomment to enable)
   // if (config.developerid.includes(userId)) {
   //   try {
   //     await command.execute(interaction);
@@ -147,7 +147,7 @@ async function synchronizeCommands(interaction, client) {
     }
   }
 
-  // update global cooldowns
+  //@note: update global cooldowns table
   globalCooldowns.set(userId, now);
   setTimeout(() => globalCooldowns.delete(userId), globalCooldownAmount);
 
