@@ -5,19 +5,14 @@
   "main": "bootstrap.js",
   "scripts": {
     "start": "node bootstrap.js",
-    "format": "prettier --write \"**/*.js\"",
-    "install": "npm install"
+    "format": "prettier --write \"**/*.js\""
   },
   "keywords": [],
   "author": "NoSkill33",
   "license": "ISC",
   "dependencies": {
-    "canvas": "^2.11.2",
     "chalk": "^4.1.2",
     "discord.js": "^14.15.3",
-    "ffmpeg": "^0.0.4",
-    "fluent-ffmpeg": "^2.1.3",
-    "googleapis": "^144.0.0",
     "mongoose": "^8.5.3",
     "node-fetch": "^3.3.2",
     "systeminformation": "^5.23.5",
