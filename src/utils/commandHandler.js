@@ -62,7 +62,7 @@ async function synchronizeCommands(interaction, client) {
 
   if (!interaction.inGuild()) {
     return interaction.reply({
-      content: 'Komendy mogą zostać użyte tylko na serwerze.',
+      content: 'Commands can only be used on a server.',
       ephemeral: true,
     });
   }
@@ -84,7 +84,7 @@ async function synchronizeCommands(interaction, client) {
   //   fields: [
   //     {
   //       name: 'Channel',
-  //       value: `<#${interaction.channel.id}>`,
+  //       value: `<#${interaction.channelId}>`,
   //       inline: true,
   //     },
   //     {
@@ -100,6 +100,7 @@ async function synchronizeCommands(interaction, client) {
   //   ],
   //   titleText: '**Command used**',
   //   //color: '#FF5733',
+  // "#0ab9ee"
   //   //authorName: message.author.username,
   //   //authorIconURL: message.author.displayAvatarURL({ size: 4096 }),
   // };

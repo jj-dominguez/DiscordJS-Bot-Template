@@ -31,7 +31,7 @@ async function logCommandInteraction(interaction) {
     fields: [
       {
         name: 'Channel',
-        value: `<#${interaction.channel.id}>`,
+        value: `<#${interaction.channelId}>`,
         inline: true,
       },
       {
@@ -68,7 +68,7 @@ async function logButtonInteraction(interaction) {
     fields: [
       {
         name: 'Channel',
-        value: `<#${interaction.channel.id}>`,
+        value: `<#${interaction.channelId}>`,
         inline: true,
       },
       {

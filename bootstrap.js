@@ -30,7 +30,7 @@ client.once(Events.ClientReady, async () => {
 
   //@note: sets bot's rich presence status
   client.user.setPresence({
-    activities: [{ name: `Discord JS Bot Template - https://github.com/NoSkill33`, type: ActivityType.Custom }],
+    activities: [{ name: `Intelligently streamlining tasks & comms to amplify your daily efficiency`, type: ActivityType.Custom }],
     status: 'online',
   });
 
