@@ -1,5 +1,5 @@
 {
-  "name": "Discord JS Bot Template",
+  "name": "FlowState AI - Discord Bot",
   "version": "1.0.0",
   "description": "",
   "main": "bootstrap.js",
@@ -8,7 +8,7 @@
     "format": "prettier --write \"**/*.js\""
   },
   "keywords": [],
-  "author": "NoSkill33",
+  "author": "Jordan Dominguez",
   "license": "ISC",
   "dependencies": {
     "chalk": "^4.1.2",
