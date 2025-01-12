@@ -1,7 +1,7 @@
 const { REST, Routes, Collection } = require('discord.js');
 const fs = require('fs');
 const path = require('path');
-const config = require('../../config/config.json');
+const config = require('../../config/environment');
 const { getcooldownMessages, getdeinMessages } = require('./responseBuilder');
 const { createEmbed } = require('./embedBuilder');
 
@@ -34,7 +34,7 @@ async function loadCommands(client) {
   readFilesRecursively(commandPath);
 
   //@note: register commands
-  if (config.deploy_commands) {
+  if (config.deployCommands) {
     const rest = new REST().setToken(config.token);
     try {
       console.log('Started refreshing application commands.');
@@ -62,7 +62,7 @@ async function synchronizeCommands(interaction, client) {
 
   if (!interaction.inGuild()) {
     return interaction.reply({
-      content: 'Komendy mogą zostać użyte tylko na serwerze.',
+      content: 'Commands can only be used on a server.',
       ephemeral: true,
     });
   }
@@ -74,17 +74,17 @@ async function synchronizeCommands(interaction, client) {
     (command.globalCooldown ?? defaultCooldownDuration) * 1_000;
 
   // developer only
-  if (command.developer && !config.developerid.includes(userId)) {
+  if (command.developer && !config.developerId.includes(userId)) {
     return interaction.reply({ content: getdeinMessages(), ephemeral: true });
   }
 
-  // const comlogs_channel = client.channels.cache.get(config.comlogs_channel);
+  const logChannel = interaction.client.channels.cache.get(config.comLogsChannel);
 
   // const embedOptions = {
   //   fields: [
   //     {
   //       name: 'Channel',
-  //       value: `<#${interaction.channel.id}>`,
+  //       value: `<#${interaction.channelId}>`,
   //       inline: true,
   //     },
   //     {
@@ -100,6 +100,7 @@ async function synchronizeCommands(interaction, client) {
   //   ],
   //   titleText: '**Command used**',
   //   //color: '#FF5733',
+  // "#0ab9ee"
   //   //authorName: message.author.username,
   //   //authorIconURL: message.author.displayAvatarURL({ size: 4096 }),
   // };

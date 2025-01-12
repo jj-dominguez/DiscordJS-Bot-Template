@@ -1,5 +1,7 @@
-const users = new Map();
+require('dotenv').config();
+const config = require('./config/environment');
 
+const users = new Map();
 const {
   Client,
   Collection,
@@ -7,7 +9,6 @@ const {
   GatewayIntentBits,
   Events,
 } = require('discord.js');
-const config = require('./config/config.json');
 const commandHandler = require('./src/utils/commandHandler');
 const eventHandler = require('./src/utils/eventHandler');
 const componentHandler = require('./src/utils/componentHandler');
@@ -30,7 +31,7 @@ client.once(Events.ClientReady, async () => {
 
   //@note: sets bot's rich presence status
   client.user.setPresence({
-    activities: [{ name: `Discord JS Bot Template - https://github.com/NoSkill33`, type: ActivityType.Custom }],
+    activities: [{ name: `Intelligently streamlining tasks & comms to amplify your daily efficiency`, type: ActivityType.Custom }],
     status: 'online',
   });
 

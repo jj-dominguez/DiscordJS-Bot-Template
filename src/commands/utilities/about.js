@@ -5,26 +5,19 @@ const {
   ButtonStyle,
 } = require('discord.js');
 const createEmbed = require('../../utils/embedBuilder');
-//const config = require('../../../config/config.json');
 
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('about')
-    .setDescription('Displays information about the DISCORDJS Bot Template.'),
+    .setDescription('Displays information about FLOWSTATE AI.'),
   async execute(interaction) {
     await interaction.deferReply();
 
     const embedOptions = {
-      description: `A versatile Discord bot template built with Discord.js. Perfect for developers who want a quick start with customizable commands, event handling, and essential features to kick off a new Discord bot project. Get ready to enhance your server with ease!`,
-      footerText: 'Made with ❤️ by n0sk1ll',
+      description: `Flowstate AI is your personal productivity bot, intelligently streamlining tasks and communications to amplify your daily efficiency. By automating priority tasks and integrating seamlessly with your tools, Flowstate AI empowers you to focus on what truly matters, maintaining clarity and drive each day. Experience a new era of operational elegance—where every action aligns with your goals, effortlessly.`,
+      footerText: 'v0.0.1',
       timestamp: false,
     };
-
-    const adButton = new ButtonBuilder()
-      .setLabel('Github')
-      .setStyle(ButtonStyle.Link)
-      .setURL(`https://github.com/NoSkill33`);
-    const row = new ActionRowBuilder().addComponents(adButton);
 
     const embed = createEmbed.createEmbed(embedOptions);
 
