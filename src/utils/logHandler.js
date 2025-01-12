@@ -1,11 +1,12 @@
-const config = require('../../config/config.json');
 const chalk = require('chalk');
 const { createEmbed } = require('./embedBuilder');
+const config = require('../../config/environment');
+const botName = config.botName;
 
 function initialize(client) {
   const defaultConsoleLog = console.log;
   const defaultConsoleError = console.error;
-  const botlogs = client.channels.cache.get(config.botlogs_channel);
+  const botlogs = client.channels.cache.get(config.botLogsChannel);
 
   const delay = 4000;
   let messageQueue = [];
@@ -41,27 +42,27 @@ function initialize(client) {
   }
 
   console.log = function (...args) {
-    defaultConsoleLog(config.bot_name, ...args);
-    sendEmbed(args.join(' '), config.bot_color);
+    defaultConsoleLog(botName, ...args);
+    sendEmbed(args.join(' '), config.botColor);
   };
 
   console.error = function (...args) {
-    defaultConsoleError(config.bot_name, ...args);
+    defaultConsoleError(botName, ...args);
     sendEmbed(args.join(' '), '#FF5733');
   };
 
   console.debug = function (...args) {
-    defaultConsoleLog(config.bot_name, ...args);
+    defaultConsoleLog(botName, ...args);
     sendEmbed(args.join(' '), '#FFAE42');
   };
 
   console.task = function (...args) {
-    defaultConsoleLog(chalk.yellow(config.bot_name, '[TASK]', ...args));
+    defaultConsoleLog(chalk.yellow(botName, '[TASK]', ...args));
     sendEmbed(args.join(' '), '#FFAE42');
   };
 
   console.warn = function (...args) {
-    defaultConsoleLog(chalk.yellow(config.bot_name, ...args));
+    defaultConsoleLog(chalk.yellow(botName, ...args));
     sendEmbed(args.join(' '), '#FFAE42');
   };
 }

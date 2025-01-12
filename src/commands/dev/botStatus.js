@@ -2,7 +2,6 @@ const { SlashCommandBuilder, version } = require('discord.js');
 const os = require('os');
 const { execSync } = require('child_process');
 const createEmbed = require('../../utils/embedBuilder');
-//const config = require('../../../config/config.json');
 const packageInfo = require('../../../package.json');
 const si = require('systeminformation');
 

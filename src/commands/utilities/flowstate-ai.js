@@ -1,10 +1,8 @@
 const { SlashCommandBuilder } = require('discord.js');
 const fetch = require('node-fetch');
+const config = require('../../../config/environment');
 
-// const { N8N_WEBHOOK_URL_TEST } = process.env;
-const N8N_WEBHOOK_URL_PROD = 'http://localhost:5678/webhook/094bcc98-9684-4394-a262-3b3094429882';
-const N8N_WEBHOOK_URL_TEST = 'http://localhost:5678/webhook-test/094bcc98-9684-4394-a262-3b3094429882';
-const webhookUrl = N8N_WEBHOOK_URL_PROD;
+const webhookUrl = config.webhooks[config.isProduction ? 'n8nProd' : 'n8nTest'];
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -12,7 +10,7 @@ module.exports = {
     .setDescription('Chat with Flowstate AI.')
     .addStringOption(option =>
       option.setName('input')
-        .setDescription('The input or question for OpenAI tools')
+        .setDescription('The input or question for Flowstate AI')
         .setRequired(true)),
 
   async execute(interaction) {

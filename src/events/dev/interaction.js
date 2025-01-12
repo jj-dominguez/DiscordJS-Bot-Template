@@ -1,6 +1,6 @@
 const { Events } = require('discord.js');
 const { createEmbed } = require('../../utils/embedBuilder');
-const config = require('../../../config/config.json');
+const config = require('../../../config/environment');
 
 module.exports = {
   name: Events.InteractionCreate,
@@ -55,7 +55,9 @@ async function logCommandInteraction(interaction) {
 
   const embedLog = createEmbed(embedOptions);
 
-  const logChannel = interaction.client.channels.cache.get(config.comlogs_channel);
+  const logChannel = interaction.client.channels.cache.get(
+    config.comLogsChannel,
+  );
   if (logChannel) {
     await logChannel.send({ embeds: [embedLog] });
   }
@@ -87,7 +89,9 @@ async function logButtonInteraction(interaction) {
 
   const embedLog = createEmbed(embedOptions);
 
-  const logChannel = interaction.client.channels.cache.get(config.comlogs_channel);
+  const logChannel = interaction.client.channels.cache.get(
+    config.comLogsChannel,
+  );
   if (logChannel) {
     await logChannel.send({ embeds: [embedLog] });
   }

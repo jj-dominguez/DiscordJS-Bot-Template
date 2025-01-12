@@ -1,11 +1,11 @@
 const { EmbedBuilder } = require('discord.js');
-const config = require('../../config/config.json');
+const config = require('../../config/environment');
 
 function createEmbed({
   fields = [],
   titleText = '',
   description = null, // default
-  color = config.bot_color,
+  color = config.botColor,
   authorName = null, // default
   authorIconURL = null, // default
   thumbnailURL = null, // default
